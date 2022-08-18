@@ -1,0 +1,189 @@
+:root {
+  --red: #f9032f;
+  --black: #000;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/* navbar */
+
+.navbar {
+  height: 60px;
+  background: var(--black);
+  /* padding: 1rem; */
+  padding: 1rem calc((100vw - 1200px) / 2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.navbar__logo {
+  color: var(--white);
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.navbar__link {
+  color: var(--white);
+  padding: 0 1rem;
+  text-decoration: none;
+}
+.navbar__link:hover {
+  color: var(--red);
+  transform: translateY(2px);
+}
+
+@media screen and (max-width: 768px) {
+  body.active {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  .navbar__link {
+    /* display: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar__menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 100px);
+    position: absolute;
+    /* top: -1000px;
+     */
+    opacity: 0;
+    width: 80%;
+  }
+  .navbar__menu.active {
+    top: 100%;
+    z-index: 99;
+    width: 80%;
+    opacity: 1;
+    height: 100vh;
+    background: var(--black);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+  }
+  .navbar__toggle .bar {
+    width: 25px;
+    height: 3px;
+    margin: 0.2rem auto;
+    background: var(--white);
+    transition: all 0.3s ease-in-out;
+    display: block;
+    cursor: pointer;
+  }
+  #mobile-menu {
+    position: absolute;
+    top: 15%;
+    right: 5%;
+    transform: translate(5%, 20%);
+  }
+  #mobile-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  #mobile-menu.is-active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  #mobile-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+/* Hero section */
+
+.hero {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)),
+    url("./images/gym06.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  padding: 0.5rem calc((100vw - 1200px) / 2);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hero__content {
+  color: var(--white);
+  padding: 3rem 1rem;
+  line-height: 1;
+}
+.hero__content h1 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.hero__content p {
+  font-size: clamp(1rem, 4vw, 2.5rem);
+  /* text-transform: uppercase; */
+  margin-bottom: 3rem;
+}
+
+.hero__content .button {
+  padding: 1rem 2rem;
+  border: none;
+  background: var(--red);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  transition: 0.4s ease;
+  outline: none;
+  cursor: pointer;
+}
+.button:hover {
+  background: var(--black);
+  transform: translateX(2rem);
+}
+
+/* services section */
+.services {
+  padding: 2rem calc((100vw - 1200px) / 2);
+}
+
+.services__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+}
+.services_img {
+  width: 100%;
+  height: 100%;
+}
+
+.topline {
+  font-weight: bold;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.services__heading {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-bottom: 1rem;
+}
+.services__features {
+  list-style: none;
+}
+.services__feature {
+  font-size: clamp(1rem, 5vw, 1.2rem);
+  margin-bottom: 1.5rem;
+}
+.fa-check-circle {
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .services__container {
+    grid-template-columns: 1fr;
+  }
+}
